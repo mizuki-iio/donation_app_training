@@ -1,7 +1,6 @@
 class UserDonation
 
-  include ActiveModel::Model
-  attr_accessor :name, :name_reading, :nickname, :postal_code, :prefecture, :city, :house_number, :building_name, :price
+  attr_accessor :name, :name_reading, :nickname, :postal_code, :prefecture, :city, :house_number, :building_name
 
 
   with_options presence: true do
@@ -23,8 +22,7 @@ class UserDonation
       postal_code: postal_code, 
       prefecture: prefecture, 
       city: city, house_number: house_number, 
-      building_name: building_name,
-      user_id: user.id
+      building_name: building_name
     )
     # 寄付金の情報を保存
     Donation.create(price: price, user_id: user.id)
